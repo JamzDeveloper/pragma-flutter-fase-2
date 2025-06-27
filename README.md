@@ -6,7 +6,7 @@ Una aplicación de ejemplo hecha en Flutter que simula una tienda virtual. Permi
 
 ## 📲 Funcionalidades
 
-- 🔐 Autenticación 
+- 🔐 Autenticación
 - 🛒 Agregar productos al carrito
 - 🧮 Cálculo de subtotal
 - 🔍 Búsqueda de productos
@@ -73,6 +73,7 @@ lib/
     ├── utils/
     └── widgets/
 ```
+
 ## Arquitectura
 
 La aplicación está basada en una arquitectura modular y limpia, con separación de responsabilidades clara:
@@ -80,11 +81,12 @@ La aplicación está basada en una arquitectura modular y limpia, con separació
 - features/ organiza el código por módulos funcionales.
 - Uso de flutter_bloc para el manejo del estado.
 - data/ para servicios.
--  state/ para los blocs.
+- state/ para los blocs.
 - widgets/ reutilizables.
 - Navegación con go_router.
 
 ## Dependencias
+
 ```bash
 dependencies:
   flutter:
@@ -101,29 +103,29 @@ dependencies:
 
 ## 🧪 Estado actual
 
-- ✅ Autenticación  
-- ✅ Búsqueda de productos  
-- ✅ Bloc funcional para carrito  
-- ✅ Subtotal funcional  
-- ✅ Diseño responsive  
-- ✅ Separación en módulos y bloc  
+- ✅ Autenticación
+- ✅ Búsqueda de productos
+- ✅ Bloc funcional para carrito
+- ✅ Subtotal funcional
+- ✅ Diseño responsive
+- ✅ Separación en módulos y bloc
 
 ---
 
 ## 🚀 Mejoras pendientes
 
-- [ ] Animación de "fly-to-cart"  
-- [ ] Página de detalles del producto  
-- [ ] Wishlist (favoritos)  
-- [ ] Persistencia local con `shared_preferences` o `hive`  
-- [ ] Registro real de usuarios  
+- [ ] Animación de "fly-to-cart"
+- [ ] Página de detalles del producto
+- [ ] Wishlist (favoritos)
+- [ ] Persistencia local con `shared_preferences` o `hive`
+- [ ] Registro real de usuarios
 
 ---
 
 ## ▶️ Ejecución
 
-1. Clona el repositorio.  
-2. Ejecuta `flutter pub get`.  
+1. Clona el repositorio.
+2. Ejecuta `flutter pub get`.
 3. Corre el proyecto con `flutter run`.
 
 ---
@@ -138,10 +140,13 @@ Proyecto desarrollado por **Jamz**
 ## 📸 Capturas
 
 ### 🏠 Pantalla de inicio
-![Home](screenshots/home_page.png)
+
+## 📸 Captura redimensionada
+
+<img src="screenshots/home_page.png" alt="Home" width="300" />
 
 ### 🛒 Pantalla del carrito
-![Carrito](screenshots/cart_page.png)
+<img src="screenshots/cart_page.png" alt="Carrito" width="300" />
 
 ### 👤 Pantalla del perfil
-![Carrito](screenshots/profile_page.png)
+<img src="screenshots/profile_page.png" alt="Perfil" width="300" />
