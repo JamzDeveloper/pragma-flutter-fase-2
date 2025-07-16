@@ -18,60 +18,66 @@ Una aplicación de ejemplo hecha en Flutter que simula una tienda virtual. Permi
 ## 📁 Estructura del proyecto
 
 ```bash
-lib/
-├── core/                     # Configuración base del proyecto
-│   ├── routing/              # Enrutamiento con go_router
+lib
+├── core
+│   ├── routing
 │   │   └── app_router.dart
-│   └── theme/                # Estilos globales
+│   └── theme
 │       ├── colors.dart
 │       └── light_theme.dart
-├── features/                 # Módulos funcionales
-│   ├── auth/                 # Autenticación
-│   │   ├── data/
+├── features
+│   ├── auth
+│   │   ├── data
 │   │   │   └── auth_service.dart
-│   │   ├── models/
+│   │   ├── models
 │   │   │   ├── login_request.dart
 │   │   │   └── login_response.dart
-│   │   ├── screen/
+│   │   ├── screen
 │   │   │   └── login_screen.dart
-│   │   └── state/
+│   │   └── state
 │   │       ├── auth_bloc.dart
 │   │       ├── auth_event.dart
 │   │       └── auth_state.dart
-│   └── home/                 # Módulo principal (Home)
-│       ├── data/
-│       │   ├── product_service.dart
-│       │   └── user_service.dart
-│       ├── models/
-│       │   ├── car_store.dart
-│       │   ├── cart_item.dart
-│       │   ├── product.dart
-│       │   └── user.dart
-│       ├── screens/
-│       │   ├── home_screen.dart
-│       │   ├── home_shell.dart
-│       │   └── tabs/
-│       │       ├── cart_tab.dart
-│       │       ├── home_tab.dart
-│       │       └── profile_tab.dart
-│       ├── state/
-│       │   ├── cart_bloc.dart
-│       │   ├── cart_event.dart
-│       │   ├── cart_state.dart
-│       │   ├── product_bloc.dart
-│       │   ├── product_event.dart
-│       │   ├── product_state.dart
-│       │   ├── user_bloc.dart
-│       │   ├── user_event.dart
-│       │   └── user_state.dart
-│       └── widgets/
-│           ├── cart_item.dart
-│           ├── product_card.dart
-│           └── profile_option_tile.dart
-├── main.dart                 # Punto de entrada
-└── shared/
-    ├── utils/
-    └── widgets/
+│   ├── home
+│   │   ├── data
+│   │   ├── models
+│   │   │   ├── car_store.dart
+│   │   │   └── cart_item.dart
+│   │   ├── screens
+│   │   │   ├── home_shell.dart
+│   │   │   ├── porduct_detailts.dart
+│   │   │   ├── process_payment.dart
+│   │   │   └── tabs
+│   │   │       ├── cart_tab.dart
+│   │   │       ├── home_tab.dart
+│   │   │       └── profile_tab.dart
+│   │   ├── state
+│   │   │   ├── cart
+│   │   │   │   ├── cart_bloc.dart
+│   │   │   │   ├── cart_event.dart
+│   │   │   │   └── cart_state.dart
+│   │   │   ├── products
+│   │   │   │   ├── product_bloc.dart
+│   │   │   │   ├── product_event.dart
+│   │   │   │   └── product_state.dart
+│   │   │   └── user
+│   │   │       ├── user_bloc.dart
+│   │   │       ├── user_event.dart
+│   │   │       └── user_state.dart
+│   │   └── widgets
+│   │       ├── cart_item.dart
+│   │       ├── product_card.dart
+│   │       ├── profile_option_tile.dart
+│   │       ├── quantity_cart.dart
+│   │       └── recommended_products.dart
+│   └── support_contact
+│       ├── models
+│       └── screen
+│           └── support_contact.dart
+├── main.dart
+└── shared
+    ├── utils
+    └── widgets
 ```
 
 ## Arquitectura
@@ -101,21 +107,25 @@ dependencies:
 
 ```
 
-## 🧪 Estado actual
+## ✅ Funcionalidades Implementadas
 
-- ✅ Autenticación
-- ✅ Búsqueda de productos
-- ✅ Bloc funcional para carrito
-- ✅ Subtotal funcional
-- ✅ Diseño responsive
-- ✅ Separación en módulos y bloc
+- [x] Página Principal con productos destacados y promociones.
+- [x] Catálogo de Productos con filtrado por categorías.
+- [x] Página de Búsqueda de productos.
+- [x] Detalle del Producto con recomendados.
+- [x] Autenticación (Inicio de sesión).
+- [x] Página del Carrito (agregar, quitar, actualizar cantidades).
+- [x] Página de Soporte y Contacto.
+- [x] Responsive para distintos dispositivos.
+- [x] Consumo de API Fake Store desde paquete Dart personalizado.
+- [x] Sistema de diseño personalizado.
+- [x] Consumo de API desde paquete Dart (`fake_store_client`)
 
 ---
 
 ## 🚀 Mejoras pendientes
 
 - [ ] Animación de "fly-to-cart"
-- [ ] Página de detalles del producto
 - [ ] Wishlist (favoritos)
 - [ ] Persistencia local con `shared_preferences` o `hive`
 - [ ] Registro real de usuarios
@@ -149,4 +159,19 @@ Proyecto desarrollado por **Jamz**
 <img src="screenshots/cart_page.png" alt="Carrito" width="300" />
 
 ### 👤 Pantalla del perfil
-<img src="screenshots/profile_page.png" alt="Perfil" width="300" />
+<img src="screenshots/setting.png" alt="Perfil" width="300" />
+
+### 🛍️ Detalle de producto
+
+<img src="screenshots/detail_product.png" alt="detail" width="300" />
+
+
+### 👤 Soporte 
+
+<img src="screenshots/support.png" alt="support" width="300" />
+
+
+## Git
+
+
+<img src="screenshots/fake_store.gif" alt="gif" width="300" />

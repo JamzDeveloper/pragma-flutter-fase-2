@@ -4,6 +4,7 @@ import 'package:fake_store/features/home/screens/home_shell.dart';
 import 'package:fake_store/features/home/screens/tabs/home_tab.dart';
 import 'package:fake_store/features/home/screens/tabs/cart_tab.dart';
 import 'package:fake_store/features/home/screens/tabs/profile_tab.dart';
+import 'package:fake_store/features/support_contact/screen/support_contact.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -13,6 +14,11 @@ final GoRouter appRouter = GoRouter(
       path: '/login',
       name: 'login',
       builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/support_contact',
+      name: 'support contact',
+      builder: (context, state) => const SupportScreen(),
     ),
     ShellRoute(
       builder: (context, state, child) => HomeShell(child: child),

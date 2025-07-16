@@ -6,7 +6,8 @@ class CartState {
 
   CartState({required this.items});
 
-  double get subtotal => items.fold(0, (sum, item) => sum + item.total);
+double get subtotal =>
+    double.parse(items.fold(0.0, (sum, item) => sum + item.total).toStringAsFixed(2));
 
   int get totalItems => items.fold(0, (sum, item) => sum + item.quantity);
 }

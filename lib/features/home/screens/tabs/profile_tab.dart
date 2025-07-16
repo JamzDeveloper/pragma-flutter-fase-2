@@ -1,12 +1,13 @@
 import 'package:fake_store/core/theme/colors.dart';
 import 'package:fake_store/features/auth/state/auth_bloc.dart';
 import 'package:fake_store/features/auth/state/auth_state.dart';
-import 'package:fake_store/features/home/state/user_bloc.dart';
-import 'package:fake_store/features/home/state/user_event.dart';
-import 'package:fake_store/features/home/state/user_state.dart';
+import 'package:fake_store/features/home/state/user/user_bloc.dart';
+import 'package:fake_store/features/home/state/user/user_event.dart';
+import 'package:fake_store/features/home/state/user/user_state.dart';
 import 'package:fake_store/features/home/widgets/profile_option_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -18,7 +19,7 @@ class ProfileTab extends StatelessWidget {
     if (authState is AuthSuccess) {
       final userId = authState.userId;
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        context.read<UserBloc>().add(FetchUser(userId));
+        context.read<UserBloc>().add(FetchUser(int.parse(userId)));
       });
     }
 
@@ -113,6 +114,15 @@ class _ProfileContent extends StatelessWidget {
                 label: 'Referidos',
                 onTap: () {},
               ),
+              SizedBox(height: 15),
+
+              ProfileOptionTile(
+                icon: Icons.people,
+                label: 'Soporte y Contacto',
+                onTap: () {
+                  context.push("/support_contact");
+                },
+              ),
             ],
           ),
 
@@ -121,8 +131,10 @@ class _ProfileContent extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
-              child:  Text(
+              onPressed: () {
+                context.go("/login");
+              },
+              child: Text(
                 "Cerrar sesión",
                 style: TextStyle(color: Colors.white),
               ),
@@ -133,6 +145,7 @@ class _ProfileContent extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
+              
             ),
           ),
         ],

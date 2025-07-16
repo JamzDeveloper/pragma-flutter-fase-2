@@ -1,5 +1,6 @@
-import 'package:fake_store/features/home/state/cart_bloc.dart';
-import 'package:fake_store/features/home/state/cart_event.dart';
+import 'package:fake_store/features/home/state/cart/cart_bloc.dart';
+import 'package:fake_store/features/home/state/cart/cart_event.dart';
+import 'package:fake_store/features/home/widgets/quantity_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,7 +16,6 @@ class CartItemWidget extends StatelessWidget {
 
   const CartItemWidget({
     super.key,
-
     required this.productId,
     required this.title,
     required this.price,
@@ -30,60 +30,54 @@ class CartItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: const EdgeInsets.all(12),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              // padding: const EdgeInsets.all(8.0),
-              child: Image.network(imageUrl),
-              height: 80,
-              width: 80,
-            ),
-
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title.length > 20 ? title.substring(0, 20) : title,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(category),
-                Text(
-                  " \$ $price",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            // Rating + delete
-            // Rating alineado arriba
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.star, color: Colors.orange, size: 16),
-                    SizedBox(width: 4),
-                    Text("$rating"),
-                  ],
-                ),
-                Text("($reviewCount) reseñas"),
-              ],
-            ),
-
-            const SizedBox(width: 10),
-
-            Container(
-              child: GestureDetector(
-                onTap: () {
-                  context.read<CartBloc>().add(
-                    RemoveProductFromCart(productId),
-                  );
-                },
-                child: Icon(Icons.delete_outline, color: Colors.red),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                imageUrl,
+                width: 80,
+                height: 80,
+                fit: BoxFit.contain,
               ),
             ),
+            const SizedBox(width: 12),
+            Expanded(
+              flex: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title.length > 30 ? '${title.substring(0, 30)}...' : title,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(category, style: TextStyle(color: Colors.grey.shade700)),
+                  const SizedBox(height: 4),
+                  Text(
+                    "\$${price.toStringAsFixed(2)}",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(Icons.star, color: Colors.orange, size: 16),
+                      const SizedBox(width: 4),
+                      Text('$rating ($reviewCount)'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            AddSubtractQuantityWidget(productId: productId, quantity: quantity),
           ],
         ),
       ),

@@ -40,7 +40,7 @@ dependencies:
   http: ^1.4.0
   sign_in_button: ^4.0.1
   jwt_decoder: ^2.0.1
-
+  fake_store_client: ^1.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

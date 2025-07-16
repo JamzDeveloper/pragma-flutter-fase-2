@@ -1,7 +1,8 @@
 import 'package:fake_store/core/theme/colors.dart';
-import 'package:fake_store/features/home/state/product_bloc.dart';
-import 'package:fake_store/features/home/state/product_event.dart';
-import 'package:fake_store/features/home/state/product_state.dart';
+import 'package:fake_store/features/home/screens/porduct_detailts.dart';
+import 'package:fake_store/features/home/state/products/product_bloc.dart';
+import 'package:fake_store/features/home/state/products/product_event.dart';
+import 'package:fake_store/features/home/state/products/product_state.dart';
 import 'package:fake_store/features/home/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,14 +58,25 @@ class _HomeTabState extends State<HomeTab> {
                         ),
                     itemBuilder: (context, index) {
                       final product = products[index];
-                      return ProductCard(
-                        title: product.title,
-                        imageUrl: product.image,
-                        price: product.price,
-                        rating: product.rating.rate,
-                        productId: product.id,
-                        category: product.category,
-                        reviewCount: product.rating.count,
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (_) => ProductDetailScreen(product: product,allProducts: products,),
+                            ),
+                          );
+                        },
+                        child: ProductCard(
+                          title: product.title,
+                          imageUrl: product.image,
+                          price: product.price,
+                          rating: product.rating.rate,
+                          productId: product.id,
+                          category: product.category,
+                          reviewCount: product.rating.count,
+                        ),
                       );
                     },
                   ),
