@@ -122,6 +122,9 @@ dependencies:
 - [x] Consumo de API desde paquete Dart (`fake_store_client`)
 
 ---
+## Diagrama
+<img src="screenshots/driagram.drawio.png" alt="diagrama" width="300" />
+
 
 ## 🚀 Mejoras pendientes
 
@@ -175,3 +178,4 @@ Proyecto desarrollado por **Jamz**
 
 
 <img src="screenshots/fake_store.gif" alt="gif" width="300" />
+
