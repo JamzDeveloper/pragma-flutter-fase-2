@@ -177,4 +177,3 @@ Proyecto desarrollado por **Jamz**
 
 
 <img src="screenshots/fake_store.gif" alt="gif" width="300" />
-
