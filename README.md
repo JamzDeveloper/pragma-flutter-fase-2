@@ -121,7 +121,6 @@ dependencies:
 - [x] Sistema de diseño personalizado.
 - [x] Consumo de API desde paquete Dart (`fake_store_client`)
 
----
 ## Diagrama
 <img src="screenshots/driagram.drawio.png" alt="diagrama" width="300" />
 
